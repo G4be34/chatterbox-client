@@ -13,10 +13,16 @@ var RoomsView = {
 
   render: function() {
     // TODO: Render out the list of rooms.
+
   },
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
+    var $room = _.template("<option><%= roomname %></option>");
+    //an if statment that check if the $room({romename:romename}) it has a script
+    if (roomname.indexOf('script') === -1) {
+      RoomsView.$select.prepend($room({roomname: roomname}));
+    }
   },
 
   handleChange: function(event) {

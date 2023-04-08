@@ -8,6 +8,7 @@ var FormView = {
 
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
+
   },
 
   handleSubmit: function(event) {
@@ -15,9 +16,15 @@ var FormView = {
     event.preventDefault();
 
     // TODO: Currently, this is all handleSubmit does.
-    // Make this function actually send a message to the Parse API.
-  
-    console.log('click!');
+    // Make this function actually send a message to
+    var message = {
+      username: 'Gabe',
+      text: '<script>document.body.style.backgroundColor = "red"</script>',
+      roomname: 'cool pepole',
+    };
+    Parse.create(message);
+
+    console.log('click!', event);
   },
 
   setStatus: function(active) {
