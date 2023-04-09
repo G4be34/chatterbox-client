@@ -13,6 +13,7 @@ var MessagesView = {
 
   render: function(messages) {
     // TODO: Render _all_ the messages.
+    MessagesView.$chats.html('');
     messages.forEach((message) => {
       MessagesView.renderMessage(message);
     })

@@ -8,6 +8,8 @@ var App = {
 
   username: 'anonymous',
 
+
+
   initialize: function() {
     App.username = window.location.search.substr(10);
 
@@ -27,13 +29,15 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log("show me data",data);
 
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
-      MessagesView.render(data);
-      RoomsView.render(data);
+      // MessagesView.render(data);
+      // RoomsView.render(data);
+      Messages.update(data, MessagesView.render)
+      Rooms.update(data, RoomsView.render)
       callback();
+      console.log(data);
     });
 
   },
